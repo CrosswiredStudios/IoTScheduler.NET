@@ -41,8 +41,8 @@ namespace IoTScheduler.Net
         /// <summary>
         /// Adds a task to the scheduler
         /// </summary>
-        /// <param name="task"></param>
-        /// <returns></returns>
+        /// <param name="task">The task to add to the scheduler</param>
+        /// <returns>Returns a AddTaskResult with all relevant information</returns>
         public AddTaskResult AddTask(IoTSchedulerTask task)
         {
             Debug.WriteLine("IoTScheduler: Adding task");

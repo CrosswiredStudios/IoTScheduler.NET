@@ -12,3 +12,10 @@ It has no external dependencies and allows a developer to trigger function calls
 As the names imply, these tasks allow you to set up single time use and reccuring events that fire at a given time in the day.
 
 The library includes no persistence. You will want to wrap the scheduler in a class that builds a list of tasks from a file or databse.
+
+
+Protip:
+
+If you would like to debug your embedded apps locally there is a way! Just very well hidden documentation.
+Download the Windows ADK (https://developer.microsoft.com/en-us/windows/hardware/windows-assessment-deployment-kit) and make sure to include the Windows Imaging and Configuration Designer.
+Instructions for enabling embedded mode can be found under Debugging Background Application at https://developer.microsoft.com/en-us/windows/iot/docs/embeddedmode. Good Luck!

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace IoTScheduler.Net
 {
+    /// <summary>
+    /// Task object used for scheduling by IoTScheduler
+    /// </summary>
     public sealed class IoTSchedulerTask
     {
         #region Properties
@@ -32,6 +35,9 @@ namespace IoTScheduler.Net
             }
         }
 
+        /// <summary>
+        /// TimeSpan representing the hour, minute, and second to fire the callback at
+        /// </summary>
         public TimeSpan StartTime
         {
             get
@@ -53,6 +59,13 @@ namespace IoTScheduler.Net
 
         #region Constructors
 
+        /// <summary>
+        /// Instantiates a blank task
+        /// </summary>
+        public IoTSchedulerTask()
+        {
+
+        }
 
         #endregion
 
