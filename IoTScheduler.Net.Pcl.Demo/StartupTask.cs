@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * IoTScheduler Demo
+ * 
+ * This demo shows a simple use case. Our class declares a IoTScheduler property, initializes it, creates a task, and adds it to the scheduler.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

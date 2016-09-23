@@ -73,6 +73,7 @@ namespace IoTScheduler.Net
 
         public void FireCallback()
         {
+            
             if (Callback != null)
                 Callback();
         }
