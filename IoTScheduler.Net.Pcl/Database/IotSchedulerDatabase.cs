@@ -14,7 +14,7 @@ namespace IoTScheduler.Net.Pcl.Database
 
         public IotSchedulerDatabase()
         {
-            _database = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "iotSchedNet.sqlite"));
+            //_database = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "iotSchedNet.sqlite"));
         }
 
         public SQLiteConnection Database
@@ -27,7 +27,7 @@ namespace IoTScheduler.Net.Pcl.Database
 
         public void Initialize()
         {
-
+            
         }
     }
 }

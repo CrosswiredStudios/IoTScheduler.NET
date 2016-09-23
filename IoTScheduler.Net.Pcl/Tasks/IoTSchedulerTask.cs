@@ -14,17 +14,21 @@ namespace IoTScheduler.Net
 
         private TimeSpan _startTime;
         private DateTime _startDate;
-        private TaskFunction _command;
+        private CallbackEventHandler _callback;
 
         #endregion
 
         #region Public
 
-        public TaskFunction Command
+        public CallbackEventHandler CallbackFunction
         {
             get
             {
-                return _command;
+                return _callback;
+            }
+            set
+            {
+                _callback = value;
             }
         }
 
@@ -34,9 +38,14 @@ namespace IoTScheduler.Net
             {
                 return _startTime;
             }
+            set
+            {
+                _startTime = value;
+            }
         }
 
-        public delegate void TaskFunction();
+        public delegate void CallbackEventHandler();
+        public event CallbackEventHandler Callback;
 
         #endregion
 
@@ -48,6 +57,12 @@ namespace IoTScheduler.Net
         #endregion
 
         #region Methods
+
+        public void FireCallback()
+        {
+            if (Callback != null)
+                Callback();
+        }
         #endregion
     }
 }

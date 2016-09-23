@@ -1,6 +1,7 @@
 ﻿using IoTScheduler.Net.Pcl.Database;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,7 +15,7 @@ namespace IoTScheduler.Net
 
         #region Private
 
-        IotSchedulerDatabase _database;
+        //IotSchedulerDatabase _database;
 
         #endregion
 
@@ -28,12 +29,14 @@ namespace IoTScheduler.Net
 
         public IoTScheduler()
         {
-            _database = new IotSchedulerDatabase();
+            //_database = new IotSchedulerDatabase();
         }
 
         #endregion
 
         #region Methods
+
+        Timer timer;
 
         /// <summary>
         /// Adds a task to the scheduler
@@ -42,16 +45,23 @@ namespace IoTScheduler.Net
         /// <returns></returns>
         public AddTaskResult AddTask(IoTSchedulerTask task)
         {
-            Timer timer;
+            Debug.WriteLine("IoTScheduler: Adding task");
+
+            
             DateTime current = DateTime.Now;
             TimeSpan timeToGo = task.StartTime - current.TimeOfDay;
             if (timeToGo < TimeSpan.Zero)
             {
-                //time already passed
+                Debug.WriteLine("IoTScheduler: Too late");
+                return new AddTaskResult();
             }
+
+            Debug.WriteLine("IoTScheduler: Adding task in " + timeToGo.TotalSeconds);
+
             timer = new System.Threading.Timer(x =>
             {
-                task.Command();
+                Debug.WriteLine("IoTScheduler: Firing task");
+                task.FireCallback();
             }, null, timeToGo, Timeout.InfiniteTimeSpan);
 
             return new AddTaskResult();
@@ -63,7 +73,7 @@ namespace IoTScheduler.Net
         /// <returns></returns>
         public bool Initialize()
         {
-            _database.Initialize();
+            //_database.Initialize();
             return true;
         }
 
